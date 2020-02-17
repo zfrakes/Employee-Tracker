@@ -24,9 +24,24 @@ INSERT INTO department (id, name) values (2, "Sales");
 INSERT INTO department (id, name) values (3, "Engineering");
 INSERT INTO department (id, name) values (4, "Legal");
 
+
 INSERT INTO employee_role (id, title, salary, department_id) values (1, "Sales Lead", 1000000, 2);
-INSERT INTO employee_role (id, title, salary, department_id) values (2, "Lead Engineer", 1500000, 3);
-INSERT INTO employee_role (id, title, salary, department_id) values (3, "Lawyer", 1900000, 4);
+INSERT INTO employee_role (id, title, salary, department_id) values (2, "Salesperson", 800000, 2);
+INSERT INTO employee_role (id, title, salary, department_id) values (3, "Lead Engieering", 150000, 3);
+INSERT INTO employee_role (id, title, salary, department_id) values (4, "Software Engieering", 120000, 3);
+INSERT INTO employee_role (id, title, salary, department_id) values (5, "Accountant", 120000, 1);
+INSERT INTO employee_role (id, title, salary, department_id) values (6, "Legal Team Lead", 250000, 4);
+INSERT INTO employee_role (id, title, salary, department_id) values (7, "Lawyer", 190000, 4);
+INSERT INTO employee_role (id, title, salary, department_id) values (8, "Lead Engieering", 150000, 3);
+
+
 
 INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (1, 'John', 'Doe', 1, null);
 INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (2, 'Mike', 'Chan', 2, null);
+INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (3, 'Ashley', 'Rodriguez', 3, null);
+INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (4, 'Kevin', 'Tupik', 4, null);
+INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (3, 'Malia', 'Brown', 5, null);
+INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (3, 'Sarah', 'Lourd', 6, null);
+INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (3, 'Tom', 'Allen', 7, null);
+INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (3, 'Christian', 'Eckenrode', 7, null);
+

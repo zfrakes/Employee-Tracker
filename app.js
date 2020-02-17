@@ -16,3 +16,51 @@ var con = mysql.createConnection({
       console.log("Database created");
     });
   });
+  connection.connect(function(err) {
+    if (err) throw err;
+    runSearch();
+  });
+  
+  function runSearch() {
+    inquirer
+      .prompt({
+        name: "action",
+        type: "rawlist",
+        message: "What would you like to do?",
+        choices: [
+          "View All Employees",
+          "View All Departments",
+          "View All Roles",
+          "Add Department",
+          "Add Role",
+          "Add Employee",
+        ]
+      });
+      .then(function(answer) {
+        switch (answer.action) {
+        case "View All Employees":
+          employeeSearch();
+          break;
+  
+        case "View All Departments":
+          multiSearch();
+          break;
+  
+        case "View All Roles":
+          roleSearch();
+          break;
+  
+        case "Add Department":
+          departmentSearch();
+          break;
+  
+        case "Add Role":
+          addroleSearch();
+          break;
+        
+        case "Add Employee":
+            addemployeeSearch();
+            break;
+        }
+      });
+  }
