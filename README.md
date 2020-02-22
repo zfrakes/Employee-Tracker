@@ -4,20 +4,13 @@ A Employee-Tracker application is able to view and manage the departments, roles
 
 
 ## Technologies/Languages used
-
 * Inquirer.js
-* console.table 
 * JavaScript
 * Node
 * MYSQL
  
 ## Launch
-To launch this application run 
-
-in your terminal or copy and paste the following link in your browser to pull the repo.
-
-
-
+To launch this application first provide your MySQLwo password in the password section of app.js file. Then you run node app.js in your terminal.
 
 ## Author
 This application was created by Zoey Frakes. To contact please email at zfrakes811@gmail.com

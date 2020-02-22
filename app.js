@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
-    password: 'zrf081193',
+    password: '',
     database: "employeetracker_db",
 });
 
@@ -88,31 +88,63 @@ function adddepartmentSearch() {
             });
 
     }
-    function addroleSearch() {
+    function addemployeeSearch() {
         inquirer
             .prompt([{
-                name: "title",
+                name: "first_name",
                 type: "input",
-                message: "What would you like to name your new role?"
+                message: "What is the first name of the employee you would like to add?"
             }, {
-                name: "salary",
+                name: "last_name",
                 type: "input",
-                message: "What would you like the salary to be?"
+                message: "What is the last name of the employee you would like to add?"
             }, {
-                name: "department_id",
+                name: "role_id",
                 type: "input",
-                message: "What would you like the department to be (enter id)?"
+                message: "What would you like the role to be (enter id)?"
+            },
+              {
+                name: "manager_id",
+                type: "input",
+                message: "Who would you like to be assign manager (enter id)?"
             }])
+
             .then(function (answer) {
-                var query = `INSERT INTO employee_role(title, salary, department_id) VALUES ("${answer.title}", ${answer.salary}, ${answer.department_id})`;
+                var query = `INSERT INTO employee_role(title, salary, department_id) VALUES ("${answer.first_name}", ${answer.last_name}, ${answer.role_id}, ${answer.manager_id})`;
                 connection.query(query, function (err, result) {
                     if (err) throw err;
                     console.log("1 record inserted");
                     runSearch();
                 });
 
-            });
-
+            })
+            
+            function  updatemployeeroleSearch() {
+                inquirer
+                    .prompt([{
+                        name: "name",
+                        type: "input",
+                        message: "Which employee would you like to update their?"
+                    }, {
+                        name: "last_name",
+                        type: "input",
+                        message: "What is the employee updated role?"
+                    }, {
+                        name: "role_id",
+                        type: "input",
+                        message: "What would you like the role to be (enter id)?"
+                    },
+            
+                    }]);
+            
+            .then(function(answer) {
+                if (err) throw err;
+                var query = "UPDATE customers SET = 'Canyon 123' WHERE address = 'Valley 345'";
+                connection.query(query, function (err, result) {
+                  if (err) throw err;
+                  console.log(result.affectedRows + " record(s) updated");
+                });
+              });
     function runSearch() {
         inquirer
             .prompt({
@@ -120,12 +152,13 @@ function adddepartmentSearch() {
                 type: "rawlist",
                 message: "What would you like to do?",
                 choices: [
-                    "View All Employees",
+                    "View All Employees",ou
                     "View All Departments",
                     "View All Roles",
                     "Add Department",
                     "Add Role",
                     "Add Employee",
+                    "Update employee roles"
                 ]
             })
             .then(function (answer) {
@@ -153,10 +186,14 @@ function adddepartmentSearch() {
                     case "Add Employee":
                         addemployeeSearch();
                         break;
+                    
+                    case "Update employee roles":
+                        updatemployeeroleSearch();
+                        break;
                 }
             });
     }
     connection.connect(function (err) {
         if (err) throw err;
         runSearch();
-    });
+    })

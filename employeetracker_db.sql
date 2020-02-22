@@ -37,11 +37,11 @@ INSERT INTO employee_role (id, title, salary, department_id) values (8, "Lead En
 
 
 INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (1, 'John', 'Doe', 1, 3);
-INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (2, 'Mike', 'Chan', 2, null);
+INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (2, 'Mike', 'Chan', 2, 1;
 INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (3, 'Ashley', 'Rodriguez', 3, null);
-INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (4, 'Kevin', 'Tupik', 4, null);
+INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (4, 'Kevin', 'Tupik', 4, 3);
 INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (5, 'Malia', 'Brown', 5, null);
 INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (6, 'Sarah', 'Lourd', 6, null);
-INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (7, 'Tom', 'Allen', 7, null);
-INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (8, 'Christian', 'Eckenrode', 7, null);
+INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (7, 'Tom', 'Allen', 7, 6);
+INSERT INTO employee (id, first_name, last_name,role_id, manager_id) values (8, 'Christian', 'Eckenrode', 7, 2);
 
