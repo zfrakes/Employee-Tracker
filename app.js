@@ -10,40 +10,37 @@ const connection = mysql.createConnection({
 });
 
 function employeeSearch() {
-    // 1. Prints out all employees
+   
     const query = "SELECT * FROM employee";
     connection.query(query, function (err, res) {
         if (err) throw err;
         console.table(res);
         runSearch();
     });
-    // 2. Ask the user what they would like to do
+  
 
 };
 function multiSearch() {
-    // 1. Prints out all employees
     const query = "SELECT * FROM department";
     connection.query(query, function (err, res) {
         if (err) throw err;
         console.table(res);
         runSearch();
     });
-    // 2. Ask the user what they would like to do
+   
 
 };
 function roleSearch() {
-    // 1. Prints out all employees
-    var query = "SELECT * FROM employee_role";
+     const query = "SELECT * FROM employee_role";
     connection.query(query, function (err, res) {
         if (err) throw err;
         console.table(res);
         runSearch();
     });
-    // 2. Ask the user what they would like to do
+   
 
 };
 
-// 2. Ask the user what they would like to do
 
 function adddepartmentSearch() {
     inquirer
@@ -53,7 +50,7 @@ function adddepartmentSearch() {
             message: "What would you like to name your department?"
         })
         .then(function (answer) {
-            var query = "INSERT INTO department (name) VALUES ('" + answer.department + "')";
+            const query = "INSERT INTO department (name) VALUES ('" + answer.department + "')";
             connection.query(query, function (err, result) {
                 if (err) throw err;
                 console.log("1 record inserted");
@@ -78,7 +75,7 @@ function adddepartmentSearch() {
                 message: "What would you like the department to be (enter id)?"
             }])
             .then(function (answer) {
-                var query = `INSERT INTO employee_role(title, salary, department_id) VALUES ("${answer.title}", ${answer.salary}, ${answer.department_id})`;
+                const query = `INSERT INTO employee_role(title, salary, department_id) VALUES ("${answer.title}", ${answer.salary}, ${answer.department_id})`;
                 connection.query(query, function (err, result) {
                     if (err) throw err;
                     console.log("1 record inserted");
@@ -110,7 +107,7 @@ function adddepartmentSearch() {
             }])
 
             .then(function (answer) {
-                var query = `INSERT INTO employee (first_name, last_name, role_id,manager_id) VALUES ("${answer.first_name}", "${answer.last_name}", ${answer.role_id}, ${answer.manager_id})`;
+                const query = `INSERT INTO employee (first_name, last_name, role_id,manager_id) VALUES ("${answer.first_name}", "${answer.last_name}", ${answer.role_id}, ${answer.manager_id})`;
                 connection.query(query, function (err, result) {
                     if (err) throw err;
                     console.log("1 record inserted");
@@ -135,7 +132,7 @@ function adddepartmentSearch() {
                     ])
             
             .then(function(answer) {
-                var query = `UPDATE employee SET role_id = ${answer.role_id} WHERE id = ${answer.id}`;
+                const query = `UPDATE employee SET role_id = ${answer.role_id} WHERE id = ${answer.id}`;
                 connection.query(query, function (err, result) {
                   if (err) throw err;
                   console.log(result.affectedRows + " record(s) updated");
@@ -157,7 +154,7 @@ function adddepartmentSearch() {
                     ])
             
             .then(function(answer) {
-                var query = `UPDATE employee SET manager_id = ${answer.manager_id} WHERE id = ${answer.id}`;
+                const query = `UPDATE employee SET manager_id = ${answer.manager_id} WHERE id = ${answer.id}`;
                 connection.query(query, function (err, result) {
                   if (err) throw err;
                   console.log(result.affectedRows + " record(s) updated");
